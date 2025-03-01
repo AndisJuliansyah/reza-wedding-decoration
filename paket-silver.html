@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="D:/andis/rwd/image/logorwd.png" type="image/png">
+    <title>Reza Wedding & Decoration</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #CE9C3C;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #CE9C3C;
+            position: relative;
+            display: inline-block; /* Menjadikan elemen inline-block agar bisa dihitung lebar secara dinamis */
+            overflow: hidden;
+            padding-bottom: 5px; /* Memberikan sedikit ruang agar garis tidak terlalu dekat dengan teks */
+            transition: color 0.3s ease-in-out;
+        }
+        /* Garis bawah yang bergerak */
+        .navbar-light .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ffffff;
+            transition: width 0.4s ease-in-out;
+        }
+        /* Efek hover dengan garis bawah bergerak */
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #ffffff; /* Mengubah warna teks saat hover */
+        }
+        .navbar-light .navbar-nav .nav-link:hover::after {
+            width: 100%; /* Garis bawah meluas hingga lebar penuh */
+        }
+        .nav-item {
+            font-size: 18px;
+        }
+        .navbar {
+            justify-content: space-between;
+            height: 12vh;
+            background-color: #192331; /* Transparan */
+            position: fixed;
+        }
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .navbar-toggler {
+            border-color: white; /* Warna border tombol hamburger menjadi putih */
+        }
+        .navbar-toggler-icon {
+            background-color: #CE9C3C; /* Warna hamburger menjadi putih */
+        }
+        
+        /* Untuk perangkat kecil */
+        @media (max-width: 991px) {
+            .navnav {
+                margin-top: 11%;
+                text-align: center;
+                background-color: rgba(25, 35, 49, 0.8);
+            }
+
+            .navnav2 {
+                text-align: center;
+                background-color: rgba(25, 35, 49, 0.8);
+            }
+
+            .navbar-collapse {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .mobile {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+            .navbrand {
+                display: none;
+            }
+
+            .navbar-toggler {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+            }
+
+            /* Garis bawah pada menu tetap ada di perangkat mobile */
+            .navbar-light .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background-color: #ffffff;
+                transition: width 0.4s ease-in-out;
+            }
+            
+            .navbar-light .navbar-nav .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .dtl {
+                margin-top: 25%;
+            }
+        }
+        @media (min-width: 991px) {
+            .mobile {
+                    display: none;
+            }
+            .dtl {
+                margin-top: 10%;
+                /* margin-bottom: 10%; */
+            }   
+        }
+        
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+}
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-footer{
+  position: relative;
+  background: #1e2129;
+}
+
+.footer-content{
+  position: relative;
+  padding: 85px 0px 80px 0px;
+}
+.footer-content:before{
+  position: absolute;
+  content: '';
+  background: url(https://i.ibb.co/jyRLrBZ/world-map.png);
+  width: 744px;
+  height: 365px;
+  top: 50px;
+  right: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation-name: float-bob;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: float-bob;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: float-bob;
+  -moz-animation-duration: 30s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob;
+  -ms-animation-duration: 30s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob;
+  -o-animation-duration: 30s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+.footer-content .logo-widget{
+  position: relative;
+  margin-top: -5px;
+}
+.footer-content .logo-widget .footer-social li{
+  position: relative;
+  display: inline-block;
+  margin-right: 9px;
+}
+.footer-content .logo-widget .footer-social li:last-child{
+  margin-right: 0px;
+}
+.footer-content .logo-widget .footer-social li a{
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  background: #2e3138;
+  color: #CE9C3C;
+  text-align: center;
+  border-radius: 50%;
+}
+.footer-content .logo-widget .footer-social li a:hover{
+  color: #CE9C3C;
+  background: #ffffff;
+}
+.footer-content .logo-widget .logo-box{
+  margin-bottom: 25px;
+}
+.footer-content .logo-widget .text p{
+  color: #CE9C3C;
+  margin-bottom: 32px;
+}
+.footer-content .footer-title{
+  position: relative;
+  font-size: 24px;
+  line-height: 35px;
+  font-family: 'Playfair Display', serif;
+  color: #CE9C3C;
+  font-weight: 700;
+  margin-bottom: 27px;
+}
+.footer-content .service-widget .list li{
+  display: block;
+  margin-bottom: 12px;
+}
+.footer-content .service-widget .list li a{
+  position: relative;
+  display: inline-block;
+  color: #CE9C3C;
+}
+.footer-content .service-widget .list li a:hover{
+  color: #ffffff;
+}
+.footer-content .contact-widget p{
+  color: #CE9C3C;
+  margin-bottom: 15px;
+}
+.footer-content .contact-widget{
+  margin-left: 90px;
+}
+.footer-content .contact-widget .footer-title{
+  margin-bottom: 29px;
+}
+
+/** footer-bottom **/
+
+.footer-bottom{
+  position: relative;
+  background: #192331;
+  padding: 25px 0px 22px 0px;
+}
+.footer-bottom .copyright,
+.footer-bottom .copyright a,
+.footer-bottom .footer-nav li a{
+  position: relative;
+  color: #CE9C3C;
+}
+.footer-bottom .copyright a:hover,
+.footer-bottom .footer-nav li a:hover{
+  color: #ffffff;
+}
+.footer-bottom .footer-nav{
+  position: relative;
+  text-align: right;
+}
+.footer-bottom .footer-nav li{
+  position: relative;
+  display: inline-block;
+  margin-left: 29px;
+}
+.footer-bottom .footer-nav li:first-child{
+  margin-left: 0px;
+}
+.footer-bottom .footer-nav li:before{
+  position: absolute;
+  content: '';
+  background: #CE9C3C;
+  width: 1px;
+  height: 14px;
+  top: 7px;
+  left: -18px;
+}
+.footer-bottom .footer-nav li:first-child:before{
+  display: none;
+}
+.logo-box img {
+    max-width: 220px;
+}
+
+
+        .package-card {
+            margin: 20px 0;
+        }
+        .card {
+            height: 50%; /* Membuat semua kartu memiliki tinggi yang sama */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Memastikan tombol berada di bawah */
+        }
+        .card-body a {
+            background-color: #CE9C3C;
+            border-color: #CE9C3C;
+        }
+        .card-body a:hover {
+            border-color: #b28a23;
+            background-color: #b28a23;
+        }
+       
+        /*Detail css*/
+        
+        .row {
+            display: flex;
+            align-items: stretch;  /* Membuat kolom kiri dan kanan memiliki tinggi yang sama */
+        }
+        .image-gallery {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-gallery img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .thumbnail-gallery {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        .thumbnail-gallery img {
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            margin-right: 10px;
+        }
+        .thumbnail-gallery img:hover {
+            transform: scale(1.1);
+        }
+        .package-details {
+            /* margin-left: 30px; */
+            height: 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .package-name {
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .best-price-flag {
+            background-color: #FF6347;
+            color: white;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 50px;
+        }
+        .package-price {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            margin-left: 5px;
+        }
+        .package-price del {
+            font-size: 20px;
+            color: #A9A9A9;
+        }
+        .price-line {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 24px;
+            font-weight: bold;  
+        }
+        .overview-box {
+            background-color: #CE9C3C;
+            padding: 10px 15px;
+            border-radius: 10px;
+            text-align: center;
+            width: 120px;
+            font-size: 16px;
+            color: white;
+        }
+        .overview-box h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .overview-box .price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .order-button {
+            text-align: center;
+            background-color: #CE9C3C;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .order-button:hover {
+            background-color: #b28a23;
+            color: #ffffff;
+        }
+        .description {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        .description h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .description p {
+            line-height: 1.6;
+        }
+        .vintage-separator {
+            border-top: 1px dashed #8B4513; /* Garis putus-putus berwarna coklat */
+            margin: 40px 0; /* Jarak atas dan bawah */
+            position: relative; /* Untuk posisi elemen pseudo */
+        }
+        .vintage-separator:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px; 
+            background-color: #8B4513;
+            border-radius: 50%;
+            top: -15px;
+        }
+        .line-tps {
+            width: 100%; /* Lebar garis, bisa diubah sesuai kebutuhan */
+            background-color: #000; /* Warna garis, ganti dengan yang diinginkan */
+            margin: 20px 0; /* Jarak atas dan bawah */
+            border: 1px solid #e0e0e0;
+        }
+        h3 {
+        display: inline-block; /* Agar border hanya di bawah teks */
+        }
+        h3::after {
+        content: "";
+        display: block;
+        width: 80%; /* Garis hanya sepanjang 50% dari lebar h5 */
+        height: 3px; /* Lebar garis */
+        background-color: #CE9C3C; /* Warna garis */
+        margin-top: 5px; /* Jarak antara teks dan garis */
+        }
+        .loading-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Animasi berputar untuk gambar loading */
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading {
+            width: 100px; /* Ukuran gambar PNG */
+            height: 100px; /* Ukuran gambar PNG */
+            animation: rotate 1.5s linear infinite;
+        }
+
+        /* Sembunyikan konten website sampai selesai loading */
+        .content {
+            display: none;
+            /* text-align: center; */
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-wrapper">
+        <img src="D:/andis/rwd/image/logorwd.png" alt="Loading" class="loading">
+    </div>
+    <div class="content">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Tombol hamburger di kanan -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <a class="mobile" href="#">
+                <img src="D:/andis/rwd/image/logorwd.png" alt="Logo" width="100%" height="80">
+            </a>
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto navnav">
+                    <li class="nav-item" style="color: #ffffff;">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                </ul>
+                
+                <a class="navbar-brand" href="#">
+                    <img class="navbrand" src="D:/andis/rwd/image/logorwd.png" alt="Logo" width="80" height="80">
+                </a>
+                
+                <ul class="navbar-nav ml-auto navnav2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container dtl">
+        <div class="row">
+            <!-- Bagian Kiri (Gambar) -->
+            <div class="col-md-6">
+                <div class="image-gallery">
+                    <!-- Gambar Utama -->
+                    <img id="mainImage" src="D:/andis/rwd/image/gambar3.jpg" alt="Main Image">
+                    <!-- Thumbnail Gambar -->
+                    <div class="thumbnail-gallery">
+                        <img src="D:/andis/rwd/image/gambar1.jpg" alt="Thumbnail 1" onclick="changeImage('D:/andis/rwd/image/gambar1.jpg')">
+                        <img src="D:/andis/rwd/image/gambar2.jpg" alt="Thumbnail 2" onclick="changeImage('D:/andis/rwd/image/gambar2.jpg')">
+                        <img src="D:/andis/rwd/image/gambar3.jpg" alt="Thumbnail 3" onclick="changeImage('D:/andis/rwd/image/gambar3.jpg')">
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Bagian Kanan (Nama Paket, Harga, Order) -->
+            <div class="col-md-6 package-details">
+                <!-- Best Price Flag -->
+                <div class="d-flex bd-highlight">
+                    <div class="package-name w-100 bd-highlight">Paket Silver</div>
+                    <div class="flex-shrink-1">
+                        <p style="color: #ffffff;"><span class="badge" style="background: #CE9C3C;"><i class="fas fa-star"></i> Harga Terbaik</span></p></div>
+                </div>
+                <div class="package-price">
+                    <!-- Overview Box -->
+                    
+                    <!-- Harga yang dicoret -->
+                    <div class="price-line">
+                        <del>IDR 21.000.000</del> 
+                    </div>
+                    <!-- Harga setelah diskon -->
+                    <div class="price-line">
+                        <div>
+                            <div class="overview-box">
+                                <h3>Hemat</h3>
+                                <div class="price">3jt</div>
+                            </div>
+                        </div>
+                        <!-- <span>Harga:</span> -->
+                        <span>IDR 18.000.000</span>
+                    </div>
+                </div>
+                <div class="line-tps"></div>
+                <a href="https://wa.me/6281391111664?text=Halo%20Saya%20ingin%20memesan%20produk%20anda" class="order-button" target="_blank">
+                    Order Sekarang
+                </a>
+            </div>
+        </div>
+        <div class="vintage-separator"></div>
+        <!-- Bagian Deskripsi -->
+        <div class="description">
+            <h3>Detail Paket</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Tenda dan Alat Pesta</h5>
+                    <ul style="list-style-type: disc; margin-right: 10px;"></ul>
+                        <li>Tenda dekorasi 80m2</li>
+                        <li>Karpet full</li>
+                        <li>Tempat parasmanan 1 set</li>
+                        <li>Roll top 1</li>
+                        <li>Meja tamu bulat 2</li>
+                        <li>Gubukan 2</li>
+                        <li>Kursi futura 100 (no cover)</li>
+                        <li>Piring 150pcs</li>
+                        <li>Sendok garpu 150set</li>
+                        <li>Kipas blower 2</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Dekorasi dan Bunga</h5>
+                    <ul style="list-style-type: disc; margin-right: 10px;"></ul>
+                        <li>Panggung pelaminan 6m</li>
+                        <li>Pelaminan 6m</li>
+                        <li>Dekorasi bunga</li>
+                        <li>Welcome gate</li>
+                        <li>Mini garden</li>
+                        <li>Kotak amplop 2</li>
+                        <li>Pohon mapel</li>
+                        <li>Janur besar dan kecil</li>
+                    </ul>
+                    <p style="font-size: 12px; font-weight: bold;">Note : Fresh flower dan Artificial</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Make Up Pengantin</h5>
+                    <ul style="list-style-type: disc; margin-right: 10px;"></ul>
+                        <li>Rias pengantin dan aksesoris</li>
+                        <li>Pakaian baju pengantin akad 1</li>
+                        <li>Pakaian baju resepsi 2</li>
+                        <li>Pakaian baju orang tua</li>
+                        <li>Pakaian baju pager ayu 2</li>
+                    </ul>
+                    <p style="font-size: 12px; font-weight: bold;">Note : Apabila ada tambahan makeup diluar paket, akan dikenakan biaya tambahan makeup perorangan</p>
+                </div>
+            </div>
+        </div>
+        <div class="vintage-separator"></div>
+        <div class="package-section">
+            <h3 class="text-center">Paket Lainnya</h3>
+            <div class="row">
+                <div class="col-md-3 package-card">
+                    <div class="card">
+                        <img src="D:/andis/rwd/image/bronze.jpeg" class="card-img-top" alt="Paket 2">
+                        <div class="card-body">
+                            <h5 class="card-title">BRONZE</h5>
+                            <a href="D:/andis/rwd/paket-bronze.html" class="btn btn-primary">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 package-card">
+                    <div class="card">
+                        <img src="D:/andis/rwd/image/semi-gold.jpeg" class="card-img-top" alt="Paket 3">
+                        <div class="card-body">
+                            <h5 class="card-title">SEMI GOLD</h5>
+                            <a href="D:/andis/rwd/paket-semi-gold.html" class="btn btn-primary">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 package-card">
+                    <div class="card">
+                        <img src="D:/andis/rwd/image/gold.jpeg" class="card-img-top" alt="Paket 1">
+                        <div class="card-body">
+                            <h5 class="card-title">GOLD</h5>
+                            <a href="D:/andis/rwd/paket-gold.html" class="btn btn-primary">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 package-card">
+                    <div class="card">
+                        <img src="D:/andis/rwd/image/semi-platinum.jpeg" class="card-img-top" alt="Paket 2">
+                        <div class="card-body">
+                            <h5 class="card-title">SEMI PLATINUM</h5>
+                            <a href="D:/andis/rwd/paket-semi-platinum.html" class="btn btn-primary">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 package-card">
+                    <div class="card">
+                        <img src="D:/andis/rwd/image/platinum.jpeg" class="card-img-top" alt="Paket 3">
+                        <div class="card-body">
+                            <h5 class="card-title">PLATINUM</h5>
+                            <a href="D:/andis/rwd/paket-platinum.html" class="btn btn-primary">Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                    <div class="logo-widget footer-widget">
+                        <figure class="logo-box"><a href="#"><img src="D:/andis/rwd/image/logorwd.png" alt=""></a></figure>
+                        <div class="text">
+                            <p>Mewujudkan pernikahan impian Anda dengan Reza Wedding & Decoration, menciptakan momen indah dan tak terlupakan dengan dekorasi elegan dan layanan terbaik.</p>
+                        </div>
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/rezaweddingbekasi/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@rezaweddingbekasi"><i class="fab fa-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+                    <div class="service-widget footer-widget">
+                        <div class="footer-title">Menu Navigasi</div>
+                        <ul class="list">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Paket</a></li>
+                            <li><a href="#">Tentang Kamu</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">Testimoni</a></li>
+                            <li><a href="#">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+                    <div class="contact-widget footer-widget">
+                        <div class="footer-title">Kontak</div>
+                        <div class="text">
+                            <p>Jl. H.Gemin Rt.04 Rw.08 No.30 Kel.Jatikramat Kec.Jatiasih Kota Bekasi </p>
+                            <p>0896-4990-0647</p>
+                            <p>rezawedding@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- main-footer end -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 column">
+                <div class="copyright"><a href="#">RWD</a> &copy; 2025 All Right Reserved</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 column">
+                <ul class="footer-nav">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function changeImage(imageSrc) {
+        document.getElementById('mainImage').src = imageSrc;
+    }
+</script>
+<script>
+    // Menyembunyikan loading setelah konten selesai dimuat
+    window.onload = function() {
+        document.querySelector('.loading-wrapper').style.display = 'none';
+        document.querySelector('.content').style.display = 'block';
+    }
+</script>
+</body>
+</html>
