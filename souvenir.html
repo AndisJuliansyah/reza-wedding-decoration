@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./image/logorwd.png" type="image/png">
+    <title>Reza Wedding & Decoration</title>
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            color: #CE9C3C;
+        }
+        .navbar-light .navbar-nav .nav-link {
+            color: #CE9C3C;
+            position: relative;
+            display: inline-block; /* Menjadikan elemen inline-block agar bisa dihitung lebar secara dinamis */
+            overflow: hidden;
+            padding-bottom: 5px; /* Memberikan sedikit ruang agar garis tidak terlalu dekat dengan teks */
+            transition: color 0.3s ease-in-out;
+        }
+        /* Garis bawah yang bergerak */
+        .navbar-light .navbar-nav .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ffffff;
+            transition: width 0.4s ease-in-out;
+        }
+        /* Efek hover dengan garis bawah bergerak */
+        .navbar-light .navbar-nav .nav-link:hover {
+            color: #ffffff; /* Mengubah warna teks saat hover */
+        }
+        .navbar-light .navbar-nav .nav-link:hover::after {
+            width: 100%; /* Garis bawah meluas hingga lebar penuh */
+        }
+        .nav-item {
+            font-size: 18px;
+        }
+        .navbar {
+            justify-content: space-between;
+            height: 12vh;
+            background-color: #192331; /* Transparan */
+            position: fixed;
+        }
+        .navbar-brand {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .navbar-toggler {
+            border-color: white; /* Warna border tombol hamburger menjadi putih */
+        }
+        .navbar-toggler-icon {
+            background-color: #CE9C3C; /* Warna hamburger menjadi putih */
+        }
+        
+        /* Untuk perangkat kecil */
+        @media (max-width: 991px) {
+            .navnav {
+                margin-top: 11%;
+                text-align: center;
+                background-color: rgba(25, 35, 49, 0.8);
+            }
+
+            .navnav2 {
+                text-align: center;
+                background-color: rgba(25, 35, 49, 0.8);
+            }
+
+            .navbar-collapse {
+                position: absolute;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+
+            .mobile {
+                display: block;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+            .navbrand {
+                display: none;
+            }
+
+            .navbar-toggler {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 2;
+            }
+
+            /* Garis bawah pada menu tetap ada di perangkat mobile */
+            .navbar-light .navbar-nav .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background-color: #ffffff;
+                transition: width 0.4s ease-in-out;
+            }
+            
+            .navbar-light .navbar-nav .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .dtl {
+                margin-top: 25%;
+            }
+        }
+        @media (min-width: 991px) {
+            .mobile {
+                    display: none;
+            }
+            .dtl {
+                margin-top: 10%;
+                /* margin-bottom: 10%; */
+            }   
+        }
+        
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px 0;
+        }
+        h1, h2, h3, h4, h5, h6 {
+}
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    outline: none;
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-footer{
+  position: relative;
+  background: #1e2129;
+}
+
+.footer-content{
+  position: relative;
+  padding: 85px 0px 80px 0px;
+}
+.footer-content:before{
+  position: absolute;
+  content: '';
+  background: url("./image/world-map.png");
+  width: 744px;
+  height: 365px;
+  top: 50px;
+  right: 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  animation-name: float-bob;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  -webkit-animation-name: float-bob;
+  -webkit-animation-duration: 30s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: float-bob;
+  -moz-animation-duration: 30s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: float-bob;
+  -ms-animation-duration: 30s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-timing-function: linear;
+  -o-animation-name: float-bob;
+  -o-animation-duration: 30s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+}
+.footer-content .logo-widget{
+  position: relative;
+  margin-top: -5px;
+}
+.footer-content .logo-widget .footer-social li{
+  position: relative;
+  display: inline-block;
+  margin-right: 9px;
+}
+.footer-content .logo-widget .footer-social li:last-child{
+  margin-right: 0px;
+}
+.footer-content .logo-widget .footer-social li a{
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  background: #2e3138;
+  color: #CE9C3C;
+  text-align: center;
+  border-radius: 50%;
+}
+.footer-content .logo-widget .footer-social li a:hover{
+  color: #CE9C3C;
+  background: #ffffff;
+}
+.footer-content .logo-widget .logo-box{
+  margin-bottom: 25px;
+}
+.footer-content .logo-widget .text p{
+  color: #CE9C3C;
+  margin-bottom: 32px;
+}
+.footer-content .footer-title{
+  position: relative;
+  font-size: 24px;
+  line-height: 35px;
+  font-family: 'Playfair Display', serif;
+  color: #CE9C3C;
+  font-weight: 700;
+  margin-bottom: 27px;
+}
+.footer-content .service-widget .list li{
+  display: block;
+  margin-bottom: 12px;
+}
+.footer-content .service-widget .list li a{
+  position: relative;
+  display: inline-block;
+  color: #CE9C3C;
+}
+.footer-content .service-widget .list li a:hover{
+  color: #ffffff;
+}
+.footer-content .contact-widget p{
+  color: #CE9C3C;
+  margin-bottom: 15px;
+}
+.footer-content .contact-widget{
+  margin-left: 90px;
+}
+.footer-content .contact-widget .footer-title{
+  margin-bottom: 29px;
+}
+
+/** footer-bottom **/
+
+.footer-bottom{
+  position: relative;
+  background: #192331;
+  padding: 25px 0px 22px 0px;
+}
+.footer-bottom .copyright,
+.footer-bottom .copyright a,
+.footer-bottom .footer-nav li a{
+  position: relative;
+  color: #CE9C3C;
+}
+.footer-bottom .copyright a:hover,
+.footer-bottom .footer-nav li a:hover{
+  color: #ffffff;
+}
+.footer-bottom .footer-nav{
+  position: relative;
+  text-align: right;
+}
+.footer-bottom .footer-nav li{
+  position: relative;
+  display: inline-block;
+  margin-left: 29px;
+}
+.footer-bottom .footer-nav li:first-child{
+  margin-left: 0px;
+}
+.footer-bottom .footer-nav li:before{
+  position: absolute;
+  content: '';
+  background: #CE9C3C;
+  width: 1px;
+  height: 14px;
+  top: 7px;
+  left: -18px;
+}
+.footer-bottom .footer-nav li:first-child:before{
+  display: none;
+}
+.logo-box img {
+    max-width: 220px;
+}
+
+
+        .package-card {
+            margin: 20px 0;
+        }
+        .card {
+            height: 50%; /* Membuat semua kartu memiliki tinggi yang sama */
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Memastikan tombol berada di bawah */
+        }
+        .card-body a {
+            background-color: #CE9C3C;
+            border-color: #CE9C3C;
+        }
+        .card-body a:hover {
+            border-color: #b28a23;
+            background-color: #b28a23;
+        }
+
+        .loading-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Animasi berputar untuk gambar loading */
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .loading {
+            width: 100px; /* Ukuran gambar PNG */
+            height: 100px; /* Ukuran gambar PNG */
+            animation: rotate 1.5s linear infinite;
+        }
+
+        /* Sembunyikan konten website sampai selesai loading */
+        .content {
+            display: none;
+            /* text-align: center; */
+        }
+
+        /* Styling for the product section */
+        .product-section {
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 5%;
+        }
+
+        .product-section h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        /* Styling for the product grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns by default */
+            gap: 20px; /* Spacing between cards */
+            margin: 0 auto;
+            max-width: 1200px; /* Max width to center the grid */
+        }
+
+        /* Styling for each product card */
+        .product-card {
+            background-color: #f4f4f4;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 15px 0 10px;
+        }
+
+        .product-card .product-description {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 1024px) {
+            .product-grid {
+                grid-template-columns: repeat(3, 1fr); /* 3 columns on medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-section {
+                margin-top: 25%;
+            }
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr; /* 1 column on very small screens */
+            }
+            .product-section h2 {
+                font-size: 28px;
+            }
+            .product-card h3 {
+                font-size: 18px;
+            }
+            .product-card .product-description {
+                font-size: 12px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="loading-wrapper">
+        <img src="./image/logorwd.png" alt="Loading" class="loading">
+    </div>
+    <div class="content">
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <!-- Tombol hamburger di kanan -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <a class="mobile" href="#">
+                <img src="./image/logorwd.png" alt="Logo" width="100%" height="80">
+            </a>
+    
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto navnav">
+                    <li class="nav-item" style="color: #ffffff;">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Paket</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tentang Kami</a>
+                    </li>
+                </ul>
+                
+                <a class="navbar-brand" href="#">
+                    <img class="navbrand" src="./image/logorwd.png" alt="Logo" width="80" height="80">
+                </a>
+                
+                <ul class="navbar-nav ml-auto navnav2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Gallery</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div class="product-section">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 1" class="product-img">
+                    <h3 class="product-title">Asbak</h3>
+                    <p class="product-description">This is a description for product 1.</p>
+                </div>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="./image/cangkir.jpg" alt="Product 2" class="product-img">
+                    <h3 class="product-title">Asbak</h3>
+                    <p class="product-description">This is a description for product 2.</p>
+                </div>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 3" class="product-img">
+                    <h3 class="product-title">Asbak</h3>
+                    <p class="product-description">This is a description for product 3.</p>
+                </div>
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="./image/sendok.jpg" alt="Product 4" class="product-img">
+                    <h3 class="product-title">Asbak</h3>
+                    <p class="product-description">This is a description for product 4.</p>
+                </div>
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <img src="./image/sedotan.jpg" alt="Product 5" class="product-img">
+                    <h3 class="product-title">Product 5</h3>
+                    <p class="product-description">This is a description for product 5.</p>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 6" class="product-img">
+                    <h3 class="product-title">Product 6</h3>
+                    <p class="product-description">This is a description for product 6.</p>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 7" class="product-img">
+                    <h3 class="product-title">Product 7</h3>
+                    <p class="product-description">This is a description for product 7.</p>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 8" class="product-img">
+                    <h3 class="product-title">Product 8</h3>
+                    <p class="product-description">This is a description for product 8.</p>
+                </div>
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 9" class="product-img">
+                    <h3 class="product-title">Product 9</h3>
+                    <p class="product-description">This is a description for product 9.</p>
+                </div>
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 10" class="product-img">
+                    <h3 class="product-title">Product 10</h3>
+                    <p class="product-description">This is a description for product 10.</p>
+                </div>
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 11" class="product-img">
+                    <h3 class="product-title">Product 11</h3>
+                    <p class="product-description">This is a description for product 11.</p>
+                </div>
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <img src="./image/asbak.jpg" alt="Product 12" class="product-img">
+                    <h3 class="product-title">Product 12</h3>
+                    <p class="product-description">This is a description for product 12.</p>
+                </div>
+            </div>
+        </div>        
+
+    </div>
+
+
+<footer class="main-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12 footer-column">
+                    <div class="logo-widget footer-widget">
+                        <figure class="logo-box"><a href="#"><img src="./image/logorwd.png" alt=""></a></figure>
+                        <div class="text">
+                            <p>Mewujudkan pernikahan impian Anda dengan Reza Wedding & Decoration, menciptakan momen indah dan tak terlupakan dengan dekorasi elegan dan layanan terbaik.</p>
+                        </div>
+                        <ul class="footer-social">
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="https://www.instagram.com/rezaweddingbekasi/"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://www.tiktok.com/@rezaweddingbekasi"><i class="fab fa-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 offset-lg-2 footer-column">
+                    <div class="service-widget footer-widget">
+                        <div class="footer-title">Menu Navigasi</div>
+                        <ul class="list">
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Paket</a></li>
+                            <li><a href="#">Tentang Kamu</a></li>
+                            <li><a href="#">Service</a></li>
+                            <li><a href="#">Testimoni</a></li>
+                            <li><a href="#">Gallery</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 footer-widget">
+                    <div class="contact-widget footer-widget">
+                        <div class="footer-title">Kontak</div>
+                        <div class="text">
+                            <p>Jl. H.Gemin Rt.04 Rw.08 No.30 Kel.Jatikramat Kec.Jatiasih Kota Bekasi </p>
+                            <p>0896-4990-0647</p>
+                            <p>rezawedding@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- main-footer end -->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 column">
+                <div class="copyright"><a href="#">RWD</a> &copy; 2025 All Right Reserved</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 column">
+                <ul class="footer-nav">
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function changeImage(imageSrc) {
+        document.getElementById('mainImage').src = imageSrc;
+    }
+</script>
+<script>
+    // Menyembunyikan loading setelah konten selesai dimuat
+    window.onload = function() {
+        document.querySelector('.loading-wrapper').style.display = 'none';
+        document.querySelector('.content').style.display = 'block';
+    }
+</script>
+</body>
+</html>

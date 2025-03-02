@@ -141,6 +141,72 @@
                 width: 100%;
             }
         }
+
+        @media (max-width: 767px) {
+            .carousel-caption {
+                bottom: 10px; /* Menurunkan caption lebih dekat ke bawah untuk layar kecil */
+                padding: 10px; /* Mengurangi padding di layar kecil */
+                font-size: 14px; /* Menurunkan ukuran font pada layar kecil */
+                width: 80%;
+            }
+
+            .carousel-caption h2 {
+                font-size: 18px; /* Mengatur ukuran font h2 untuk mobile */
+            }
+
+            .carousel-caption p {
+                font-size: 12px; /* Mengatur ukuran font p untuk mobile */
+            }
+
+            .about-section {
+                flex-direction: column; /* Mengubah layout menjadi kolom untuk perangkat mobile */
+                text-align: center; /* Memusatkan teks pada layar kecil */
+            }
+
+            .about-text {
+                margin-bottom: 20px; /* Memberi jarak antara teks dan gambar */
+            }
+
+            .about-image {
+                width: 100%; /* Lebar gambar menyesuaikan layar perangkat */
+            }
+
+            .about-image img {
+                object-fit: contain;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-caption {
+                bottom: 5px; /* Menurunkan caption lebih dekat ke bawah untuk perangkat lebih kecil */
+                padding: 8px; /* Mengurangi padding lebih banyak lagi */
+            }
+
+            .carousel-caption h2 {
+                font-size: 16px; /* Menurunkan ukuran font h2 lebih lanjut untuk perangkat kecil */
+            }
+
+            .carousel-caption p {
+                font-size: 10px; /* Menurunkan ukuran font p lebih lanjut */
+            }
+
+            .about-section {
+                margin: 30px 10px; /* Menambahkan margin kecil untuk perangkat lebih kecil */
+            }
+
+            .about-image {
+                height: 250px; /* Mengatur tinggi gambar lebih rendah pada layar lebih kecil */
+            }
+
+            .about-text h2 {
+                font-size: 22px; /* Menyesuaikan ukuran font judul pada perangkat kecil */
+            }
+
+            .about-text p {
+                font-size: 14px; /* Menyesuaikan ukuran font paragraf pada perangkat kecil */
+            }
+        }
+
         @media (min-width: 991px) {
             .mobile {
                     display: none;
@@ -218,7 +284,7 @@
         .about-image {
             position: relative;
             width: 50%; /* Membuat lebar kontainer mengikuti lebar layar */
-            height: 400px; /* Menentukan tinggi kontainer (ubah sesuai kebutuhan) */
+            height: auto; /* Menentukan tinggi kontainer (ubah sesuai kebutuhan) */
             overflow: hidden; /* Menyembunyikan bagian video yang melebihi kontainer */
         }
 
@@ -229,7 +295,6 @@
         }
         .testimonial-section {
             flex: 1; /* Allow them to grow equally in width */
-            margin: 20px;
         }
         .testimonial-item {
             display: flex;
@@ -237,7 +302,7 @@
             border: 1px solid #ddd; /* Border untuk kotak */
             border-radius: 5px; /* Sudut melengkung */
             padding: 20px; /* Ruang di dalam kotak */
-            margin: 10px; /* Jarak antar kotak */
+            margin: 10px;
             transition: transform 0.2s; /* Efek transisi saat hover */
             height: 150px; /* Tinggi tetap untuk semua testimoni */
         }
@@ -793,7 +858,7 @@ ul {
             </div>
             <div style="text-align: center;">
                 <img src="./image/mua.jpeg" alt="Nama Anggota 2" class="team-member">
-                <p>Staff MUA</p>
+                <p>Partner MUA</p>
             </div>
             <div style="text-align: center;">
                 <img src="./image/person.jpg" alt="Nama Anggota 3" class="team-member">
@@ -812,7 +877,7 @@ ul {
             <div class="carousel-inner">
                 <div class="carousel-item active" style="height:30vh">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="testimonial-item">
                                 <img src="./image/bride.jpg" alt="Pelanggan 1" class="img-fluid">
                                 <div>
@@ -821,34 +886,16 @@ ul {
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="testimonial-item">
-                                <img src="./image/bride.jpg" alt="Pelanggan 2" class="img-fluid">
-                                <div>
-                                    <h5>Pelanggan 2</h5>
-                                    <p>"Tim yang sangat profesional dan responsif. Sangat merekomendasikan!"</p>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="carousel-item" style="height:30vh">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="testimonial-item">
-                                <img src="./image/bride.jpg" alt="Pelanggan 3" class="img-fluid">
+                                <img src="./image/bride.jpg" alt="Pelanggan 1" class="img-fluid">
                                 <div>
-                                    <h5>Pelanggan 3</h5>
-                                    <p>"Pengalaman yang menyenangkan dari awal hingga akhir. Terima kasih!"</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="testimonial-item">
-                                <img src="./image/bride.jpg" alt="Pelanggan 4" class="img-fluid">
-                                <div>
-                                    <h5>Pelanggan 4</h5>
-                                    <p>"Sangat puas dengan hasil kerja tim. Mereka sangat membantu!"</p>
+                                    <h5>Pelanggan 2</h5>
+                                    <p>"Layanan yang luar biasa! Sangat puas dengan hasilnya."</p>
                                 </div>
                             </div>
                         </div>
